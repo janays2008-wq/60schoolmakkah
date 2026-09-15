@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبادرة الثانوية الستون للقدرات والتحصيلي</title>
+    <!-- Tailwind CSS & FontAwesome Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f7faf8;
+        }
+
+        .bg-brand {
+            background-color: #0d6e53;
+        }
+
+        .text-brand {
+            color: #0d6e53;
+        }
+
+        .border-brand {
+            border-color: #0d6e53;
+        }
+
+        .bg-brand-light {
+            background-color: #e8f5f1;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- شريط التنقل العلوي Navbar -->
+    <nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white text-lg">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-gray-900">مبادرة الثانوية الستون للقدرات والتحصيلي</h1>
+                    <span class="text-xs text-gray-500">قدرات وتحصيلي</span>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="showTab('home')" id="nav-home" class="px-4 py-2 rounded-full font-medium text-sm bg-brand text-white flex items-center gap-2">
+                    <i class="fa-solid fa-house"></i> الرئيسية
+                </button>
+                <button onclick="showTab('leaderboard')" id="nav-leaderboard" class="px-4 py-2 rounded-full font-medium text-sm text-gray-600 hover:bg-gray-100 flex items-center gap-2">
+                    <i class="fa-solid fa-trophy"></i> المتصدرون
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 py-8">
+
+        <!-- الرئيسية HOME TAB -->
+        <div id="tab-home" class="space-y-8">
+
+            <!-- Hero Section -->
+            <div class="text-center space-y-3">
+                <span class="bg-brand-light text-brand px-4 py-1.5 rounded-full text-xs font-bold inline-flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> منصة تعليمية احترافية
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">مبادرة الثانوية الستون للقدرات والتحصيلي</h2>
+                <h3 class="text-xl font-bold text-brand">اختبارات القدرات والتحصيلي</h3>
+                <p class="text-gray-500 text-sm max-w-xl mx-auto">اختبري نفسك في اختبارات القدرات والتحصيلي لجميع مستويات المرحلة الثانوية. أسئلة متنوعة في كل مرة، نتائج فورية، وترتيب بين الطالبات.</p>
+
+                <div class="flex justify-center gap-3 pt-2">
+                    <a href="#test-selection" class="bg-brand text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 shadow-sm hover:opacity-95">
+                        <i class="fa-solid fa-brain"></i> ابدئي الاختبار <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </a>
+                    <button onclick="showTab('leaderboard')" class="bg-white border border-gray-200 text-gray-700 px-6 py-2.5 rounded-full font-bold flex items-center gap-2 shadow-sm hover:bg-gray-50">
+                        <i class="fa-solid fa-trophy text-amber-500"></i> عرض المتصدرات
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div id="stat-questions" class="text-2xl font-extrabold text-gray-900">60</div>
+                        <div class="text-xs text-gray-500">أسئلة متاحة</div>
+                    </div>
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div id="stat-attempts" class="text-2xl font-extrabold text-gray-900">0</div>
+                        <div class="text-xs text-gray-500">محاولات الاختبار</div>
+                    </div>
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div id="stat-students" class="text-2xl font-extrabold text-gray-900">0</div>
+                        <div class="text-xs text-gray-500">طالبات اختبرن</div>
+                    </div>
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Selection -->
+            <div id="test-selection" class="space-y-6 pt-4">
+                <div class="text-center space-y-1">
+                    <h3 class="text-2xl font-bold text-gray-900">اختاري نوع الاختبار</h3>
+                    <p class="text-sm text-gray-500">اختاري نوع الاختبار ثم املئي بياناتك للبدء</p>
+                </div>
+
+                <!-- القدرات Card -->
+                <div class="bg-white p-6 rounded-3xl border-t-4 border-brand shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">قدرات</h4>
+                            <p class="text-xs text-gray-500">اختبار القدرات العامة – قياس المهارات العقلية والمنطقية</p>
+                        </div>
+                        <div class="w-12 h-12 bg-brand-light text-brand rounded-2xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <button onclick="openModal('قدرات', 'الأولى ثانوي')" class="w-full bg-brand-light hover:bg-emerald-100 text-brand font-bold p-3.5 rounded-xl flex items-center justify-between transition">
+                            <span>الأولى ثانوي</span>
+                            <span class="text-xs bg-white px-3 py-1.5 rounded-lg flex items-center gap-1"><i class="fa-regular fa-clock"></i> ابدئي <i class="fa-solid fa-chevron-left text-[10px]"></i></span>
+                        </button>
+                        <button onclick="openModal('قدرات', 'الثانية ثانوي')" class="w-full bg-brand-light hover:bg-emerald-100 text-brand font-bold p-3.5 rounded-xl flex items-center justify-between transition">
+                            <span>الثانية ثانوي</span>
+                            <span class="text-xs bg-white px-3 py-1.5 rounded-lg flex items-center gap-1"><i class="fa-regular fa-clock"></i> ابدئي <i class="fa-solid fa-chevron-left text-[10px]"></i></span>
+                        </button>
+                        <button onclick="openModal('قدرات', 'الثالثة ثانوي')" class="w-full bg-brand-light hover:bg-emerald-100 text-brand font-bold p-3.5 rounded-xl flex items-center justify-between transition">
+                            <span>الثالثة ثانوي</span>
+                            <span class="text-xs bg-white px-3 py-1.5 rounded-lg flex items-center gap-1"><i class="fa-regular fa-clock"></i> ابدئي <i class="fa-solid fa-chevron-left text-[10px]"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- التحصيلي Card -->
+                <div class="bg-white p-6 rounded-3xl border-t-4 border-amber-500 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">تحصيلي</h4>
+                            <p class="text-xs text-gray-500">الاختبار التحصيلي – قياس المعرفة في المواد الدراسية</p>
+                        </div>
+                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <button onclick="openModal('تحصيلي', 'الأولى ثانوي')" class="w-full bg-brand-light hover:bg-emerald-100 text-brand font-bold p-3.5 rounded-xl flex items-center justify-between transition">
+                            <span>الأولى ثانوي</span>
+                            <span class="text-xs bg-white px-3 py-1.5 rounded-lg flex items-center gap-1"><i class="fa-regular fa-clock"></i> ابدئي <i class="fa-solid fa-chevron-left text-[10px]"></i></span>
+                        </button>
+                        <button onclick="openModal('تحصيلي', 'الثانية ثانوي')" class="w-full bg-brand-light hover:bg-emerald-100 text-brand font-bold p-3.5 rounded-xl flex items-center justify-between transition">
+                            <span>الثانية ثانوي</span>
+                            <span class="text-xs bg-white px-3 py-1.5 rounded-lg flex items-center gap-1"><i class="fa-regular fa-clock"></i> ابدئي <i class="fa-solid fa-chevron-left text-[10px]"></i></span>
+                        </button>
+                        <button onclick="openModal('تحصيلي', 'الثالثة ثانوي')" class="w-full bg-brand-light hover:bg-emerald-100 text-brand font-bold p-3.5 rounded-xl flex items-center justify-between transition">
+                            <span>الثالثة ثانوي</span>
+                            <span class="text-xs bg-white px-3 py-1.5 rounded-lg flex items-center gap-1"><i class="fa-regular fa-clock"></i> ابدئي <i class="fa-solid fa-chevron-left text-[10px]"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administration Box -->
+            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm grid grid-cols-2 gap-4 text-center">
+                <div class="bg-brand-light p-3 rounded-xl flex items-center justify-center gap-3">
+                    <div class="w-10 h-10 bg-white text-brand rounded-full flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-gray-500 block">المعلمة</span>
+                        <span class="font-bold text-gray-800 text-sm">أريج علي العبادي</span>
+                    </div>
+                </div>
+                <div class="bg-brand-light p-3 rounded-xl flex items-center justify-center gap-3">
+                    <div class="w-10 h-10 bg-white text-brand rounded-full flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-gray-500 block">المديرة</span>
+                        <span class="font-bold text-gray-800 text-sm">لمياء الغامدي</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LEADERBOARD TAB -->
+        <div id="tab-leaderboard" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm space-y-4">
+                <h3 class="text-2xl font-bold text-gray-900 text-center">لوحة المتصدرات</h3>
+                <div class="flex gap-2 justify-center">
+                    <select id="leaderboard-grade" onchange="renderLeaderboard()" class="p-2 border border-gray-200 rounded-xl text-sm outline-none">
+                        <option value="الأولى ثانوي">الأولى ثانوي</option>
+                        <option value="الثانية ثانوي">الثانية ثانوي</option>
+                        <option value="الثالثة ثانوي">الثالثة ثانوي</option>
+                    </select>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-sm">
+                        <thead class="bg-brand-light text-brand">
+                            <tr>
+                                <th class="p-3 rounded-r-xl">المركز</th>
+                                <th class="p-3">اسم الطالبة</th>
+                                <th class="p-3">نوع الاختبار</th>
+                                <th class="p-3 rounded-l-xl">الدرجة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-rows" class="divide-y divide-gray-100"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ INTERFACE (HIDDEN BY DEFAULT) -->
+        <div id="quiz-interface" class="hidden bg-white p-6 rounded-3xl border border-gray-100 shadow-sm space-y-6">
+            <div class="flex justify-between items-center border-b pb-4">
+                <div>
+                    <span id="quiz-type-badge" class="bg-brand-light text-brand text-xs font-bold px-3 py-1 rounded-full"></span>
+                    <h3 id="quiz-title" class="font-bold text-lg text-gray-900 mt-1"></h3>
+                </div>
+                <span id="quiz-progress" class="text-sm font-bold text-gray-400"></span>
+            </div>
+            <div class="space-y-4">
+                <h4 id="quiz-question" class="text-lg font-bold text-gray-800"></h4>
+                <div id="quiz-options" class="space-y-2"></div>
+            </div>
+            <button id="next-q-btn" onclick="nextQuestion()" class="hidden w-full bg-brand text-white py-3 rounded-xl font-bold">السؤال التالي</button>
+        </div>
+
+    </div>
+
+    <!-- Modal أدخلي اسم الطالبة -->
+    <div id="student-modal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="bg-white p-6 rounded-3xl max-w-sm w-full space-y-4">
+            <h3 class="font-bold text-lg text-gray-900 text-center">أدخلي اسمك لبدء الاختبار</h3>
+            <input type="text" id="student-name-input" class="w-full p-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-brand" placeholder="الاسم ثلاثي">
+            <div class="flex gap-2">
+                <button id="start-quiz-btn" onclick="startQuiz()" class="flex-1 bg-brand text-white py-2.5 rounded-xl font-bold text-sm">بدء</button>
+                <button onclick="closeModal()" class="flex-1 bg-gray-100 text-gray-600 py-2.5 rounded-xl font-bold text-sm">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let questions = {
+            "قدرات": [
+                { q: "إذا كان سعر 3 أقلام يساوي 12 ريالاً، فكم سعر 7 أقلام؟", options: ["28 ريال", "21 ريال", "24 ريال", "30 ريال"], ans: 0 },
+                { q: "ما هو العدد الذي إذا ضرب في 4 وأضيف إليه 8 أصبح الناتج 32؟", options: ["8", "6", "4", "10"], ans: 1 },
+                { q: "أكمل المتتابعة التالية: 2 ، 4 ، 8 ، 16 ، ...", options: ["24", "32", "20", "64"], ans: 1 }
+            ],
+            "تحصيلي": [
+                { q: "ما هي وحدة قياس القوة في النظام الدولي للوحدات؟", options: ["الجول", "الواط", "النيوتن", "الباكال"], ans: 2 },
+                { q: "أي المكونات التالية توجد فقط في الخلية النباتية؟", options: ["الجدار الخلوي", "النواة", "الميتوكندريا", "الغشاء البلازمي"], ans: 0 },
+                { q: "ما هو الرقم الهيدروجيني (pH) للماء النقي عند درجة 25 مئوية؟", options: ["0", "7", "14", "1"], ans: 1 }
+            ]
+        };
+
+        let selectedTest = { type: '', grade: '' };
+        let currentQuestions = [];
+        let currentQIdx = 0;
+        let score = 0;
+
+        function showTab(tab) {
+            ['home', 'leaderboard'].forEach(t => {
+                document.getElementById(`tab-${t}`).classList.add('hidden');
+                document.getElementById(`nav-${t}`).className = "px-4 py-2 rounded-full font-medium text-sm text-gray-600 hover:bg-gray-100 flex items-center gap-2";
+            });
+            document.getElementById(`tab-${tab}`).classList.remove('hidden');
+            document.getElementById(`nav-${tab}`).className = "px-4 py-2 rounded-full font-medium text-sm bg-brand text-white flex items-center gap-2";
+            if (tab === 'leaderboard') renderLeaderboard();
+        }
+
+        function openModal(type, grade) {
+            selectedTest = { type, grade };
+            document.getElementById('student-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('student-modal').classList.add('hidden');
+        }
+
+        // كل نتيجة تنحفظ بمفتاح خاص فيها حتى ما تتصادم نتائج طالبات يدخلن بنفس اللحظة
+        function makeResultKey() {
+            return `result:${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+        }
+
+        // يجيب كل النتائج المخزنة (بيانات مشتركة بين كل الطالبات)
+        async function fetchAllResults() {
+            try {
+                const listResult = await window.storage.list('result:', true);
+                if (!listResult || !listResult.keys || listResult.keys.length === 0) return [];
+
+                const settled = await Promise.allSettled(
+                    listResult.keys.map(k => window.storage.get(k, true))
+                );
+
+                const results = [];
+                for (const item of settled) {
+                    if (item.status === 'fulfilled' && item.value) {
+                        try {
+                            results.push(JSON.parse(item.value.value));
+                        } catch (parseErr) {
+                            console.error('تعذر قراءة نتيجة محفوظة:', parseErr);
+                        }
+                    }
+                }
+                return results;
+            } catch (err) {
+                console.error('تعذر جلب النتائج:', err);
+                return [];
+            }
+        }
+
+        async function startQuiz() {
+            let name = document.getElementById('student-name-input').value.trim();
+            if (!name) return alert("يرجى إدخال الاسم");
+            selectedTest.studentName = name;
+
+            closeModal();
+            document.getElementById('tab-home').classList.add('hidden');
+            document.getElementById('quiz-interface').classList.remove('hidden');
+
+            currentQuestions = [...questions[selectedTest.type]].sort(() => 0.5 - Math.random());
+            currentQIdx = 0;
+            score = 0;
+
+            document.getElementById('quiz-type-badge').innerText = `${selectedTest.type} - ${selectedTest.grade}`;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            let q = currentQuestions[currentQIdx];
+            document.getElementById('quiz-title').innerText = `السؤال ${currentQIdx + 1}`;
+            document.getElementById('quiz-progress').innerText = `${currentQIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('quiz-question').innerText = q.q;
+
+            let html = '';
+            q.options.forEach((opt, i) => {
+                html += `<button onclick="checkAns(${i}, this)" class="w-full text-right p-3.5 rounded-xl border border-gray-200 hover:bg-brand-light font-medium text-sm transition">${opt}</button>`;
+            });
+            document.getElementById('quiz-options').innerHTML = html;
+            document.getElementById('next-q-btn').classList.add('hidden');
+        }
+
+        function checkAns(selected, btn) {
+            let q = currentQuestions[currentQIdx];
+            let allBtns = document.getElementById('quiz-options').children;
+            for (let b of allBtns) b.disabled = true;
+
+            if (selected === q.ans) {
+                btn.className = "w-full text-right p-3.5 rounded-xl bg-emerald-100 text-emerald-800 border-2 border-emerald-500 font-bold text-sm";
+                score += (100 / currentQuestions.length);
+            } else {
+                btn.className = "w-full text-right p-3.5 rounded-xl bg-rose-100 text-rose-800 border-2 border-rose-500 font-bold text-sm";
+                allBtns[q.ans].className = "w-full text-right p-3.5 rounded-xl bg-emerald-100 text-emerald-800 border-2 border-emerald-500 font-bold text-sm";
+            }
+            document.getElementById('next-q-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQIdx++;
+            if (currentQIdx < currentQuestions.length) {
+                showQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        async function finishQuiz() {
+            let finalScore = Math.round(score);
+            let resultData = {
+                studentName: selectedTest.studentName,
+                type: selectedTest.type,
+                grade: selectedTest.grade,
+                score: finalScore,
+                date: new Date().toLocaleDateString('ar-SA')
+            };
+
+            try {
+                await window.storage.set(makeResultKey(), JSON.stringify(resultData), true);
+            } catch (err) {
+                console.error('تعذر حفظ النتيجة:', err);
+                alert('حصل خطأ أثناء حفظ نتيجتك، لكن يمكنك المحاولة مرة أخرى.');
+            }
+
+            alert(`أحسنتِ يا ${selectedTest.studentName}!\nدرجتك في الاختبار: ${finalScore}%`);
+            document.getElementById('quiz-interface').classList.add('hidden');
+            document.getElementById('tab-home').classList.remove('hidden');
+            await updateStats();
+        }
+
+        async function updateStats() {
+            let results = await fetchAllResults();
+            document.getElementById('stat-attempts').innerText = results.length;
+            let students = new Set(results.map(r => r.studentName));
+            document.getElementById('stat-students').innerText = students.size;
+        }
+
+        async function renderLeaderboard() {
+            let grade = document.getElementById('leaderboard-grade').value;
+            let tbody = document.getElementById('leaderboard-rows');
+            tbody.innerHTML = '<tr><td colspan="4" class="p-4 text-center text-gray-400">جاري تحميل النتائج...</td></tr>';
+
+            let results = await fetchAllResults();
+            let filtered = results
+                .filter(r => r.grade === grade)
+                .sort((a, b) => b.score - a.score);
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="p-4 text-center text-gray-400">لا توجد نتائج بعد لهذا المستوى</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = '';
+            filtered.forEach((r, idx) => {
+                tbody.innerHTML += `
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-3 font-bold">${idx + 1}</td>
+                            <td class="p-3">${r.studentName}</td>
+                            <td class="p-3">${r.type}</td>
+                            <td class="p-3 font-bold text-brand">${r.score}%</td>
+                        </tr>
+                    `;
+            });
+        }
+
+        // Initialize
+        updateStats();
+    </script>
+</body>
+</html>
